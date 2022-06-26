@@ -1,3 +1,13 @@
+## API 
+
+|Operation        |Method    |
+|-----------------|----------|
+|Add sensor       |`add`     |
+|Get sensor       |`get`     |
+|Update sensor    |`update`  |
+|Delete sensor    |`delete`  |
+|Ping connection  |`ping`    |
+
 ## Application Design
 
 The application itself has been designed with a modular approach. Dividing this project into multiple modules, and many small files was intentional, as it makes the overall architecture clear.
