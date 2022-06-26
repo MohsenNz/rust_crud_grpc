@@ -1,0 +1,71 @@
+syntax = "proto3";
+package sensor;
+
+service Sensor {
+  rpc Ping (PingRequest) returns (stream PingResponse);
+  rpc Add (SensorAddRequest) returns (SensorAddResponse);
+  rpc Get (SensorGetRequest) returns (stream SensorGetResponse);
+  rpc Delete (SensorDeleteRequest) returns (SensorDeleteResponse);
+  rpc Update (SensorUpdateRequest) returns (SensorUpdateResponse);
+}
+
+// Ping
+
+message PingRequest {
+  /* string authenticationId = 1; */
+  int32 streamItemCount = 1;
+}
+
+message PingResponse {
+  string currentTime = 1;
+  string message = 2;
+}
+
+// Model
+
+message SensorMessage {
+  int32 id = 1;
+  string name = 2;
+}
+
+// Create
+
+message SensorAddRequest {
+  string name = 1;
+}
+
+message SensorAddResponse {
+  SensorMessage sensor = 1;
+}
+
+// Get
+
+message SensorGetRequest {
+  int32 id = 1;
+}
+
+message SensorGetResponse {
+  SensorMessage sensor = 1;
+  bool status = 2;
+  string message = 3;
+}
+
+// Delete
+
+message SensorDeleteRequest {
+  int32 id = 1;
+}
+
+message SensorDeleteResponse {}
+
+// Update
+
+message SensorUpdateRequest {
+  /* int32 id = 1; */
+  /* string name = 2; */
+  SensorMessage sensor = 1;
+  bool status = 2;
+}
+
+message SensorUpdateResponse {}
+
